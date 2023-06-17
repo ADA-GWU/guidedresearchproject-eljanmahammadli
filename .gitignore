@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 data/free-7-million-company-dataset.zip
 data/companies_sorted.csv
+data/raw_layer/free_company_dataset.csv
