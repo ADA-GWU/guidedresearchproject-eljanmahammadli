@@ -3,7 +3,8 @@
 The aim of this research project is to develop an AI-powered system that can generate new and unique names. The system leverages character-level language techniques, ranging from simple models like n-grams to advanced models like RNNs and Transformers.
 
 ## Folder Structure
-- **code_notebooks/** - this folder contains notebooks 
+- **code_notebooks/** - this folder contains notebooks
+    - **weights** - weights for the trained models 
 - **data/** - datasets used in experiments and analysis
 - **papers/** - papers that have been analyzed
 - **presentations/** - presentations stored here
