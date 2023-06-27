@@ -4,8 +4,11 @@ The aim of this research project is to develop an AI-powered system that can gen
 
 ## Folder Structure
 - **code_notebooks/** - this folder contains notebooks
-    - **weights** - weights for the trained models 
 - **data/** - datasets used in experiments and analysis
+    - **raw_layer** - for unprocessed data
+    - **cleansed_layer** - cleaned data
+    - **app_layer** - for data prepared for application
+    - **model_layer** - for data formatted for model training and evaluation
 - **papers/** - papers that have been analyzed
 - **presentations/** - presentations stored here
 - **reports/** - reports that have been written
