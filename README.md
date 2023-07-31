@@ -2,6 +2,9 @@
 
 The aim of this research project is to develop an AI-powered system that can generate new and unique names. The system leverages character-level language techniques, ranging from simple n-grams to advanced models like RNNs and Transformers.
 
+## Architecture
+![System architecture](https://github.com/ADA-GWU/guidedresearchproject-eljanmahammadli/blob/main/images/architecture.png "System architecture")
+
 ## Folder Structure
 ```
 .
