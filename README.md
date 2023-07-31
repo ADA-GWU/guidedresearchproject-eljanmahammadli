@@ -33,11 +33,12 @@ Find weekly progress in the **code_notebooks/** folder, which includes Jupyter N
 - Week 4 - trigram_neural_net_model.ipynb
 - Week 5 - MLP_model.ipynb
 - Week 6 - WaveNet_model.ipynb
+- Week 7 - Vanilla_RNN_and_GRU.ipynb
 
 ## TODO
-- RNN and GRU
-- Transformer
-- Modularize all the models in a single Python script to serve the framework for model training and inference.
+- RNN and GRU: DONE
+- Transformer: IN PROGRESS
+- Modularize all the models in a single Python script to serve the framework for model training and inference: IN PROGRESS
 
 ## Results for different models
 #### Untrained Model
