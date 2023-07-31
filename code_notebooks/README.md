@@ -6,6 +6,7 @@ Find weekly progress in the **code_notebooks/** folder, which includes Jupyter N
 - Week 4 - trigram_neural_net_model.ipynb
 - Week 5 - MLP_model.ipynb
 - Week 6 - WaveNet_model.ipynb
+- Week 7 - Vanilla_RNN_and_GRU.ipynb + (model_helpers, dataset_utils)
 
 ## TODO
 - RNN and GRU
