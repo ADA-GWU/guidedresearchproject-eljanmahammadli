@@ -17,20 +17,20 @@ class ModelConfig:
 
 
 @torch.no_grad()
-def create_tokens(network, sequence_indices, max_token_creation, sampling=False, top_k_candidates=None):
+def create_tokens(model, sequence_indices, max_token_creation, sampling=False, top_k=None):
     """
     Create new tokens from the model, starting from the provided sequence of indices.
     """
-    sequence_limit = network.get_block_size()
+    sequence_limit = model.get_block_size()
     for _ in range(max_token_creation):
         # If the sequence context grows too large, it must be trimmed to sequence_limit
         sequence_condition = sequence_indices if sequence_indices.size(1) <= sequence_limit else sequence_indices[:, -sequence_limit:]
         # Pass the model forward to get the logits for the index in the sequence
-        logits, _ = network(sequence_condition)
+        logits, _ = model(sequence_condition)
         logits = logits[:, -1, :]
         # Optionally trim the logits to only the top k options
-        if top_k_candidates is not None:
-            v, _ = torch.topk(logits, top_k_candidates)
+        if top_k is not None:
+            v, _ = torch.topk(logits, top_k)
             logits[logits < v[:, [-1]]] = -float('Inf')
         # Apply softmax to convert logits to (normalized) probabilities
         probabilities = F.softmax(logits, dim=-1)
@@ -45,11 +45,11 @@ def create_tokens(network, sequence_indices, max_token_creation, sampling=False,
     return sequence_indices
 
 
-def display_samples(quantity=10):
+def display_samples(device, train_dataset, model, quantity=10):
     """ Function for model inference: sampling some words from the model """
     starting_input = torch.zeros(quantity, 1, dtype=torch.long).to(device)
     generation_steps = train_dataset.get_output_length() - 1 # -1 due to initial <START> token (index 0)
-    sampled_input = generate_tokens(model, starting_input, generation_steps, top_k=top_k, sampling=True).to(device)
+    sampled_input = create_tokens(model, starting_input, generation_steps, top_k=None, sampling=True).to(device)
     training_words, testing_words, novel_words = [], [], []
     for i in range(sampled_input.size(0)):
         # Obtain the i'th row of sampled integers, as python list
@@ -74,7 +74,7 @@ def display_samples(quantity=10):
 
 
 @torch.inference_mode()
-def evaluate(model, dataset, batch_size=50, max_batches=None):
+def evaluate(model, dataset, device, batch_size=50, max_batches=None):
     model.eval() # evaluation mode
     loader = DataLoader(dataset, shuffle=True, batch_size=batch_size, num_workers=0)
     losses = []
