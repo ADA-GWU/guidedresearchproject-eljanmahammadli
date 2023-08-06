@@ -20,10 +20,17 @@ The aim of this research project is to develop an AI-powered system that can gen
 └── reviews/                # Given peer reviews
 ```
 ## Usage
-Once the project is ready, it will require the followings for performing.
-- Dataset of names e.g person, company, pokemon names
-- Name of the model
-- Model parameters
+Command-line interface includes lots of arguments to choose from. Refer to the `src/main.py` for more arguments. Below are two example commands.
+
+In order to train transformer model on dinosaurs.csv with 4 number of head which outputs model to the output folder you can use following command
+```
+python3 main.py -i dinosaurs.csv -o output -model transformer -n-head 4
+```
+
+Or if you want to only sample from the model without stopping or starting training you can use:
+```
+python3 main.py -i names.txt -o output --inference
+```
 
 ## Research Progress
 Find weekly progress in the **code_notebooks/** folder, which includes Jupyter Notebook files with code and explanations. 
