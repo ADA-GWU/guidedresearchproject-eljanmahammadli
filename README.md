@@ -43,10 +43,6 @@ Find weekly progress in the **code_notebooks/** folder, which includes Jupyter N
 - Week 7 - Vanilla_RNN_and_GRU.ipynb + (model_helpers.py, dataset_utils.py)
 - Week 8 - Transformer_GPT2.ipynb
 
-## TODO
-- RNN and GRU: DONE
-- Transformer: IN PROGRESS
-- Modularize all the models in a single Python script to serve the framework for model training and inference: IN PROGRESS
 
 ## Results for different models
 #### Untrained Model
